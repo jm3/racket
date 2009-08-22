@@ -31,6 +31,7 @@
     rsdl app_racket.rb dummy.log
 
 # TODO:
+ * create simple mapper to associate events (in the logfile) with ruby event objects
  * version 1 can be simply volume modulation by overall event frequency
  * define a stub list of event types
  * study GlTail, specifically the logfile parser and how timing of events is handled
