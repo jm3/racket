@@ -5,7 +5,7 @@ include Rubygame
 
 Rubygame.init
 
-def play_sounds
+def handle_events
   puts "Using audio driver:" + Rubygame.audio_driver
   Sound.autoload_dirs = [ "sounds" ]
   sounds = {
@@ -27,12 +27,44 @@ def play_sounds
   #sound.fade_out(2) # seconds
   #sound.pause
 
+  e = Event.new( 'Share Tweet', 'A user just tweeted something about us to a friend',
+        Reaction.new( {:file => 'sounds/savage.wav', :volume => 10}, {:color => 'red', :duration => 10})
+        )
+
+  puts e
+
   # stay running while sounds are playing
   channels.each do |channel|
     while channel.playing? or channel.fading? == :out do Thread.pass end
   end
 end
 
-sound_thread = Thread.new do play_sounds end
-sound_thread.join
+class Event
+  attr_accessor :name, :desc, :reaction
+  def initialize(name, desc, reaction)
+    @name = name
+    @desc = desc
+    @reaction = reaction
+  end
+
+  def to_s
+    "Event: #{name}: #{desc}\n" + reaction.to_s
+  end
+end
+
+class Reaction
+  attr_accessor :sound, :light
+
+  def initialize(sound, light)
+    @sound = sound
+    @light = light
+  end
+
+  def to_s
+    "  sound: #{sound[:file]}\n volume: #{sound[:volume]}\n light color: #{light[:color]}\n light duration: #{light[:duration]}"
+  end
+end
+
+event_thread = Thread.new do handle_events end
+event_thread.join
 Rubygame.quit()

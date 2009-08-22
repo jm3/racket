@@ -40,6 +40,4 @@
    multiple apps/servers into a single stream
 
 ## Acknowledgements:
-Thanks to the author of the original "sonic compiler" paper i read on the internet in college, wherever you are.
-
-Also thanks to [formalplay](http://formalplay.com), [stamen](http://stamen.com/), and [slowmotionlandscape](http://companypolicy.tv) for inspiration.
+Thanks to the author of the original "sonic compiler" paper i read on the internet in college, wherever you are. Also thanks to [formalplay](http://formalplay.com), [stamen](http://stamen.com/), and [slowmotionlandscape](http://companypolicy.tv) for inspiration.
