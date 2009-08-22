@@ -9,7 +9,7 @@ def play_sounds
   puts "Using audio driver:" + Rubygame.audio_driver
   Sound.autoload_dirs = [ "sounds" ]
   sounds = {
-    :share_tweet => 'sounds/savage.wav',
+    :share_tweet => 'sounds/notify_cardinal1.aiff',
     :invite_tweet => 'sounds/squeaks.wav',
   }
   channels = []
@@ -18,19 +18,19 @@ def play_sounds
   channels << Sound.load(sounds[:invite_tweet])
 
   unless channels.first
-    puts "ERROR: Couldn't find audio file '#{file}'."
+    puts "EPIC_FAIL: Couldn't find audio file '#{file}'."
     exit
   end
 
+  channels[0].play
   channels[1].play
-  channels[2].play
   #sound.fade_out(2) # seconds
   #sound.pause
-  sleep 5
 
-  # run while still playingâ¦
-  while sound.playing? or sound.fading? == :out do Thread.pass end
-  puts "ERROR: Sound not ended" if sound.playing?
+  # stay running while sounds are playing
+  channels.each do |channel|
+    while channel.playing? or channel.fading? == :out do Thread.pass end
+  end
 end
 
 sound_thread = Thread.new do play_sounds end

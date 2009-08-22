@@ -23,8 +23,12 @@
     make
     make install
 
-    # now run app-racket with rsdl:
-    rsdl app-racket.rb
+## Usage:
+    # tap into your web-app's logfile, or simulate one:
+    ./event_log_simulator.rb > dummy.log &
+
+    # run app-racket with rsdl wrapper:
+    rsdl app_racket.rb dummy.log
 
 # TODO:
  * version 1 can be simply volume modulation by overall event frequency
@@ -32,6 +36,8 @@
  * study GlTail, specifically the logfile parser and how timing of events is handled
  * up to 8 simultaneous events
  * write description
+ * figure out if syslog is what we want for aggregate logfiles from
+   multiple apps/servers into a single stream
 
 ## Acknowledgements:
 Thanks to the author of the original "sonic compiler" paper i read on the internet in college, wherever you are.
