@@ -37,7 +37,7 @@ def handle_events
   Sound.autoload_dirs = [ "sounds" ]
 
   # TODO: yaml-ize this:
-  events = []; channels = []
+  events, responders = [], []
 
   events << Event.new('Share Tweet', 
                       'A user just tweeted something about us to a friend',
@@ -52,13 +52,13 @@ def handle_events
 
 
   # TODO: stub only; next we just pull events off the event queue
-  channels << Sound.load(events.first.reaction.sound) # FIXME: mapper goes here
-  channels.first.play
+  responders << Sound.load(events.first.reaction.sound) # FIXME: mapper goes here
+  responders.first.play
 
   # stay running while sounds are playing
-  channels.each_with_index do |channel,i|
-    while channel.playing? or channel.fading? == :out do Thread.pass end
-    channels.delete(i)
+  responders.each_with_index do |resonder,i|
+    while resonder.playing? or resonder.fading? == :out do Thread.pass end
+    responders.delete(i)
   end
 end
 
