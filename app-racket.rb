@@ -24,15 +24,13 @@ def play_sounds
 
   channels[1].play
   channels[2].play
-	#sound.fade_out(2) # seconds
-	#sound.pause
-
+  #sound.fade_out(2) # seconds
+  #sound.pause
   sleep 5
 
-  # run while still playingâ€¦
-	while sound.playing? or sound.fading? == :out do Thread.pass end
-
-	puts "ERROR: Sound not ended" if sound.playing?
+  # run while still playingâ¦
+  while sound.playing? or sound.fading? == :out do Thread.pass end
+  puts "ERROR: Sound not ended" if sound.playing?
 end
 
 sound_thread = Thread.new do play_sounds end
