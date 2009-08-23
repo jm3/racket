@@ -1,3 +1,15 @@
+## App-Racket:
+### Listen to your baby^H^H^H^Happ
+
+Warning, super broken/hacky, may cause blindness.
+
+Ever wanted a completely ambient view of your app's performance and
+progress? App-Racket lets you step back and experience the key
+events of your applications as displays of light and sound. Great
+for team morale and stoner parties.  Currently uses a custom logfile
+format, but could be extended to read any line-based log file (c.f.
+gltail).
+
 ## Installing:
 
     # get the mac SDL pre-requisites:
