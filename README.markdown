@@ -31,6 +31,7 @@
     rsdl app_racket.rb dummy.log
 
 # TODO:
+ * get familiar with [File::Tail](http://file-tail.rubyforge.org/doc/classes/File/Tail.html)
  * create simple mapper to associate events (in the logfile) with ruby event objects
  * version 1 can be simply volume modulation by overall event frequency
  * define a stub list of event types

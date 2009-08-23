@@ -36,23 +36,26 @@ def handle_events
   # puts "Using audio driver:" + Rubygame.audio_driver
   Sound.autoload_dirs = [ "sounds" ]
 
-  # TODO: yaml-ize this:
-  events, responders = [], []
+  events = {}
+  responders = []
 
-  events << Event.new('Share Tweet', 
-                      'A user just tweeted something about us to a friend',
-                      Reaction.new( 
-                        'sounds/notify_cardinal1.aiff',
-                        {:color => :red, :duration => 10}))
-  events << Event.new('Invite Tweet', 
-                      'A user just invited XXX people to the app',
-                      Reaction.new( 
-                        'sounds/squeaks.wav',
-                        {:color => :blue, :duration => 10}))
+  # TODO: yaml-ize the events map
+  events[:share_tweet] = 
+    Event.new('Share Tweet', 
+      'A user just tweeted something about us to a friend',
+      Reaction.new( 
+        'sounds/notify_cardinal1.aiff',
+        {:color => :red, :duration => 10}))
 
+  events[:invite_tweet] = 
+    Event.new('Invite Tweet', 
+      'A user just invited XXX people to the app',
+      Reaction.new( 
+        'sounds/squeaks.wav',
+        {:color => :blue, :duration => 10}))
 
   # TODO: stub only; next we just pull events off the event queue
-  responders << Sound.load(events.first.reaction.sound) # FIXME: mapper goes here
+  responders << Sound.load(events[:share_tweet].reaction.sound) # FIXME: mapper goes here
   responders.first.play
 
   # stay running while sounds are playing
