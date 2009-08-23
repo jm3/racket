@@ -1,4 +1,4 @@
-## App-Racket:
+## App-Racket
 ### Listen to the sounds of your web app
 
 Warning: very untested and hacky, may cause blindness, etc, etc
@@ -35,14 +35,13 @@ this should be yaml-ified, prolly.
     wget "http://www.kumaryu.net/?c=plugin;plugin=attach_download;p=%28Ruby%29+Ruby%2FSDL%CD%D1ruby;file_name=rsdl-0.1.1.tar.gz" \
       -O rsdl-0.1.1.tar.gz
 
-    # remove the -arch ppc arguments from the Makefile or make will bomb 
-    # while trying to make rsdl ppc binaries
+    # remove the -arch ppc arguments from the Makefile or make will bomb trying to make rsdl ppc binaries
     vi Makefile
     make
     make install
 
 ## Usage:
-    # tap into your web-app's logfile, or simulate one:
+    # start your web-app, or simulate it:
     ./event_log_simulator.rb > dummy.log &
 
     # run app-racket with rsdl wrapper:
@@ -55,8 +54,7 @@ this should be yaml-ified, prolly.
    multiple apps/servers into a single stream
 
 ## Acknowledgements:
-Thanks to the author of the original "sonic compiler" paper i read
-on the internet in college, wherever you are. Also thanks to
+Thanks to the author of the original "sonic compiler" paper, wherever you are. Also thanks to
 [formalplay](http://formalplay.com),
 [fudgie](http://www.fudgie.org),
 [stamen](http://stamen.com/),
