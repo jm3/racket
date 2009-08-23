@@ -42,7 +42,7 @@ def handle_events
   events = {}
   responders = []
 
-  # TODO: yaml-ize the events map
+  # TODO: yaml-ize me
   events[:tweet_share] = 
     Event.new('Share Tweet', 
       'A user just tweeted something about us to a friend',
@@ -71,9 +71,7 @@ def handle_events
         'sounds/savage.wav',
         {:color => :yellow, :duration => 4}))
 
-  # TODO: delete me:
-
-  # stay running while sounds are playing
+  # keep running so long as sounds are playing
   responders.each_with_index do |responder,i|
     while responder.playing? or responder.fading? == :out do Thread.pass end
     responders.delete(i)
@@ -84,9 +82,9 @@ def handle_events
   @log.tail { |line| 
     ruby, isweird, event, actor, time = /^(.+), (.+), (.+)$/.match(line).to_a
     if event
-      puts event
+      puts "responding to #{event}"
       if events.has_key?(event.to_sym)
-        responders << Sound.load(events[event.to_sym].reaction.sound) # FIXME: mapper goes here
+        responders << Sound.load(events[event.to_sym].reaction.sound)
         responders.last.play
       else
         puts 'EPIC FAIL: reaction definition missing for event ' + event
