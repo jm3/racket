@@ -4,9 +4,9 @@
 Warning: very untested and hacky, may cause blindness, etc, etc
 
 Ever wanted a completely ambient view of your app's performance and
-progress? App-Racket lets you step back and experience the key your
-applications' events in the form of light and sound. 
-Great for team morale and stoner parties. 
+progress? App-Racket lets you step back and experience your
+applications' events in the form of pure light and sound. Potentially
+great for pattern discovery, team morale, and stoner parties.
 
 App-Racket uses a custom logfile format, but could be extended to
 read any line-based log file, ala gltail.
