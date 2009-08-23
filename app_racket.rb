@@ -13,10 +13,6 @@ class Event
     @reaction = reaction
   end
 
-  def find(event_text)
-    puts 'fuck'
-  end
-
   def to_s
     "Event: #{name}: #{desc}\n" + reaction.to_s
   end
@@ -52,14 +48,28 @@ def handle_events
       'A user just tweeted something about us to a friend',
       Reaction.new( 
         'sounds/notify_cardinal1.aiff',
-        {:color => :red, :duration => 10}))
+        {:color => :red, :duration => 1}))
 
   events[:tweet_invite] = 
     Event.new('Invite Tweet', 
       'A user just invited XXX people to the app',
       Reaction.new( 
         'sounds/squeaks.wav',
-        {:color => :blue, :duration => 10}))
+        {:color => :blue, :duration => 2}))
+  
+  events[:signup] = 
+    Event.new('Invite Tweet', 
+      'Someone just signed up',
+      Reaction.new( 
+        'sounds/notify_robin.aiff',
+        {:color => :green, :duration => 3}))
+
+  events[:login] = 
+    Event.new('Log In', 
+      'A user just logged in',
+      Reaction.new( 
+        'sounds/savage.wav',
+        {:color => :yellow, :duration => 4}))
 
   # TODO: delete me:
 

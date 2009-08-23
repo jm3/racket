@@ -17,9 +17,9 @@ gltail).
       libsdl_image-framework libsdl_mixer-framework libsdl_sound-framework libsdl_gfx \
       libsdl_sound libsdl_image libsdl_ttf
 
-    # (annoying; rubygame's makefile to ignore the missing subsystems doesn't work, 
-    # so we need to install all the satellite libs like gfx and TTF etc even tho we 
-    # don't need them)
+    # (annoying; rubygame's Rake arguments to ignore the missing
+    # subsystems don't work, so we need to install all the satellite
+    # libs like gfx and TTF etc even tho we # don't need them)
 
     # get rubygame, a ruby API that interacts with SDL:
     sudo gem install rubygame
