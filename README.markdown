@@ -36,17 +36,24 @@ Sounds are kept in the "sounds" directory; WAV and AIF both supported.
     # build and install only the audio mixer, skipping the stuff we don't need:
     rake no-sdl-gfx no-sdl-image no-sdl-ttf no-opengl build
     sudo rake install
+    popd
 
     # get RSDL, a wacky japanese ruby wrapper that stops SDL from seg-faulting and
     # spewing weird errors. more at: http://www.kumaryu.net/?(Ruby)+Ruby%2FSDL%CD%D1ruby
     wget "http://www.kumaryu.net/?c=plugin;plugin=attach_download;p=%28Ruby%29+Ruby%2FSDL%CD%D1ruby;file_name=rsdl-0.1.1.tar.gz" \
       -O rsdl-0.1.1.tar.gz
-
-    # remove the -arch ppc arguments from the Makefile or make will bomb 
-    # while trying to make rsdl ppc binaries
-    vi Makefile
+    gtar zxpvf rsdl-0.1.1.tar.gz
+    pushd
+    cd rsdl-0.1.1
+    ruby configure.rb
     make
-    make install
+    sudo make install
+    hash -r
+    popd
+
+    # if you have trouble building rsdl, you can try removing the
+    # -arch ppc arguments from the Makefile to avoid make bombing
+    # while trying to make rsdl ppc binaries
 
 ## Usage:
     # tap into your web-app's logfile, or simulate one:
