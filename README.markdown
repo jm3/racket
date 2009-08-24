@@ -50,6 +50,7 @@ Sounds are kept in the "sounds" directory; WAV and AIF both supported.
     sudo make install
     hash -r
     popd
+    rm -rf rsdl-0.1.1 rsdl-0.1.1.tar.gz
 
     # if you have trouble building rsdl, you can try removing the
     # -arch ppc arguments from the Makefile to avoid make bombing
