@@ -20,13 +20,22 @@ Sounds are kept in the "sounds" directory; WAV and AIF both supported.
       libsdl_image-framework libsdl_mixer-framework libsdl_sound-framework libsdl_gfx \
       libsdl_sound libsdl_image libsdl_ttf
 
-    # annoying: Rubygame's rake arguments that purport to ignore
-    # the missing subsystems don't work, so we need to install all
-    # the satellite libs like gfx and ttf, even though we don't
-    # need them.
+    # install a ruby API that interacts with SDL. we don't use the gem because rubygame's
+    # rake build process wants to pull in about 8 extra libraries we don't need. 
+    # this avoids that:
+    git clone git://github.com/jacius/rubygame.git
+    pushd
+    cd rubygame
 
-    # install a ruby API that interacts with SDL:
-    sudo gem install rubygame
+    # edit Rubygam's Rakefile to disable gfx, image, and ttf modules:
+    # 166   :"sdl-gfx"    => false,
+    # 167   :"sdl-image"  => false,
+    # 168   :"sdl-ttf"    => false,
+    vi Rakefile
+
+    # build and install only the audio mixer, skipping the stuff we don't need:
+    rake no-sdl-gfx no-sdl-image no-sdl-ttf no-opengl build
+    sudo rake install
 
     # get RSDL, a wacky japanese ruby wrapper that stops SDL from seg-faulting and
     # spewing weird errors. more at: http://www.kumaryu.net/?(Ruby)+Ruby%2FSDL%CD%D1ruby
