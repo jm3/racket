@@ -66,6 +66,9 @@ Sounds are kept in the "sounds" directory; WAV and AIF both supported.
     # learn
 
 # TODO:
+ * implement tailing over ssh, ala GlTail
+ * yaml-ize sound reaction mapping
+ * implement light control via [arduino](http://rad.rubyforge.org/)
  * figure out if syslog is what we want for aggregate logfiles from
    multiple apps/servers into a single stream
 
