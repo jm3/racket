@@ -68,7 +68,7 @@ def handle_events
     Event.new('Log In', 
       'A user just logged in',
       Reaction.new( 
-        'sounds/phasing-bendy-bells.wav',
+        'sounds/savage.wav',
         {:color => :yellow, :duration => 4}))
 
   # keep running so long as sounds are playing
