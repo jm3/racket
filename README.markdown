@@ -17,23 +17,42 @@ this should be yaml-ified, prolly.
 
 ## Installing:
 
-    # install the mac SDL pre-requisites:
-    sudo port install libsdl libsdl_mixer libsdl-framework libsdl_gfx-framework \
-      libsdl_image-framework libsdl_mixer-framework libsdl_sound-framework libsdl_gfx \
-      libsdl_sound libsdl_image libsdl_ttf
+    # install sound handling libraries
+    sudo port install libsdl libsdl_mixer
 
-    # annoying: Rubygame's rake arguments that purport to ignore
-    # the missing subsystems don't work, so we need to install all
-    # the satellite libs like gfx and ttf, even though we don't
-    # need them.
+    # install a ruby bindings for SDL. we don't use the gem here because rubygame's
+    # rake build process has a bug that forces you to install all of the SDL modules,
+    # requiring about 5 more port installs. this avoids that:
+    git clone git://github.com/jacius/rubygame.git
+    pushd
+    cd rubygame
 
-    # install a ruby API that interacts with SDL:
-    sudo gem install rubygame
+    # edit Rubygam's Rakefile to disable gfx, image, and ttf modules,
+    # changing true to false for the gfx, image, and ttf modules:
+    # 166   :"sdl-gfx"    => false,
+    # 167   :"sdl-image"  => false,
+    # 168   :"sdl-ttf"    => false,
+    vi Rakefile
 
-    # get RSDL, a wacky japanese ruby wrapper that stops SDL from seg-faulting and
-    # spewing weird errors. more at: http://www.kumaryu.net/?(Ruby)+Ruby%2FSDL%CD%D1ruby
+    # now we can build and install only the audio mixer, skipping the rest:
+    rake no-sdl-gfx no-sdl-image no-sdl-ttf no-opengl build
+    sudo rake install
+    popd
+
+    # get RSDL, a wacky japanese ruby wrapper that correctly connects
+    # to cocoa, stopping SDL from dieing with tons of memory leak errors.
+    # (more at: http://www.kumaryu.net/?(Ruby)+Ruby%2FSDL%CD%D1ruby)
     wget "http://www.kumaryu.net/?c=plugin;plugin=attach_download;p=%28Ruby%29+Ruby%2FSDL%CD%D1ruby;file_name=rsdl-0.1.1.tar.gz" \
       -O rsdl-0.1.1.tar.gz
+    gtar zxpvf rsdl-0.1.1.tar.gz
+    pushd
+    cd rsdl-0.1.1
+    ruby configure.rb
+    make
+    sudo make install
+    hash -r
+    popd
+    rm -rf rsdl-0.1.1 rsdl-0.1.1.tar.gz
 
     # remove the -arch ppc arguments from the Makefile or make will bomb trying to make rsdl ppc binaries
     vi Makefile
@@ -50,6 +69,9 @@ this should be yaml-ified, prolly.
     # learn
 
 # TODO:
+ * implement tailing over ssh, ala GlTail
+ * yaml-ize sound reaction mapping
+ * implement light control via [arduino](http://rad.rubyforge.org/)
  * figure out if syslog is what we want for aggregate logfiles from
    multiple apps/servers into a single stream
 
