@@ -2,6 +2,7 @@
 
 require 'rubygems'
 require 'rubygame'
+#require 'net/ssh'
 require 'file/tail'
 include Rubygame
 
