@@ -83,4 +83,4 @@ Thanks to the author of the original "sonic compiler" paper, wherever you are. A
 [slowmotionlandscape](http://companypolicy.tv),
 the [monome kids](http://monome.org/),
 and [ambient devices](http://ambientdevices.myshopify.com/products/stock-orb)
-for inspiration.
+for inspiration. 
