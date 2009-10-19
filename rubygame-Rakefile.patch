@@ -1,0 +1,8 @@
+166,168c166,168
+< 	:"sdl-gfx"    => true,
+< 	:"sdl-image"  => true,
+< 	:"sdl-ttf"    => true,
+---
+> 	:"sdl-gfx"    => false,
+> 	:"sdl-image"  => false,
+> 	:"sdl-ttf"    => false,
