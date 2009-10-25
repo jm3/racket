@@ -17,6 +17,7 @@ cd -
 # install support for Ogg audio containers
 wget http://downloads.xiph.org/releases/ogg/libogg-1.1.4.tar.gz
 tar zxpvf libogg-1.1.4.tar.gz && rm libogg-1.1.4.tar.gz
+chmod -R og-w libogg-1.1.4
 cd libogg-1.1.4
 ./configure && make && sudo make install
 cd -
@@ -24,6 +25,7 @@ cd -
 # support support for Ogg Vorbis-compressed audio
 wget http://downloads.xiph.org/releases/vorbis/libvorbis-1.2.3.tar.gz
 tar zxpvf libvorbis-1.2.3.tar.gz && rm libvorbis-1.2.3.tar.gz
+chmod -R og-w libvorbis-1.2.3
 cd libvorbis-1.2.3
 ./configure && make && sudo make install
 cd -
@@ -31,7 +33,7 @@ cd -
 # support support for mp3s via the smpeg decoding library
 svn co svn://svn.icculus.org/smpeg/trunk smpeg
 cd smpeg
-./configure && make
+./autogen.sh && ./configure && make
 chmod +rx install-sh
 sudo make install
 cd -
