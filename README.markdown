@@ -10,7 +10,7 @@ pattern discovery, team morale, and stoner parties. App-Racket uses
 a custom logfile format, but could be extended to read any line-based
 log file, ala gltail.
 
-Sounds are kept in the "sounds" directory; WAV and AIF both supported.
+Sounds live in the "sounds" directory; wav, mp3, aiff and even wacky formats like OggVorbis are supported.
 
 Events and corresponding reactions are defined in the events hash;
 this should be yaml-ified, prolly.
