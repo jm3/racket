@@ -40,7 +40,7 @@ cd -
 
 # install the SDL audio mixer for up to 8-sound polyphony plus background music 
 # (pre-release build for snow leopard)
-wget http://www.libsdl.org/tmp/SDL_mixer/release/SDL_mixer-1.2.9.tar.gz
+wget http://www.libsdl.org/projects/SDL_mixer/release/SDL_mixer-1.2.9.tar.gz
 tar zxpvf SDL_mixer-1.2.9.tar.gz && rm SDL_mixer-1.2.9.tar.gz
 cd SDL_mixer-1.2.9
 ./configure && make && sudo make install
