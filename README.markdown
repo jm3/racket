@@ -17,7 +17,7 @@ this should be yaml-ified, prolly.
 
 ## Installing:
 
-    ./install.sh 
+    ./install.sh
 
 ## Usage:
 
@@ -48,15 +48,17 @@ and [ambient devices](http://ambientdevices.myshopify.com/products/stock-orb)
 for inspiration. 
 
 ## Notes on installation:
-Playing audio in Ruby is less trivial than I expected before I began
-this project. App-racket uses the following libraries, mainly because
-SDL, the cross-platform multimedia library, requires many obscure
-audio formats to run, e.g. stuff like Ogg Vorbis and "libmikmod".  
+Playing audio in Ruby is much messier than I expected before starting
+this project, especially having seen things like Giles' archeopteryx.
+App-racket depends on several external libraries, primarily because
+SDL (the cross-platform multimedia library) itself depends on several
+obscure audio format decoders to even play simple files, e.g. Ogg
+Vorbis and MikMod.
 
-SDL also requires the rsdl ruby wrapper, and we interface to SDL
-via rubygame, which itself requires things like the FFI gems.  
+On top of those, on OS X SDL also requires a ruby wrapper called
+rsdl, plus we interface to SDL from ruby via something called
+rubygame, which itself requires things like the FFI gems.
 
-But not to worry, tho: the app-racket install.sh installer script
-will handle all of those for you. for me, it takes abot 4m45s to
+But not to worry: app-racket' installer script handles all that
+for you. On my macbook pro the full shebang takes about 4m45s to
 download, compile, and install everything, which isn't bad.
-

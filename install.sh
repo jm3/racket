@@ -63,7 +63,7 @@ fi
 $install rubygame
 
 # install RSDL, a wacky japanese ruby wrapper that correctly connects
-# to cocoa, stopping SDL from dieing with tons of memory leak errors.
+# to cocoa, stopping SDL from dying with oodles of memory leak errors.
 git clone git://github.com/knu/rsdl.git
 cd rsdl
 ruby configure.rb && make && sudo make install
