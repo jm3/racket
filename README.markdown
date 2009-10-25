@@ -17,7 +17,7 @@ this should be yaml-ified, prolly.
 
 ## Installing:
 
-    ./install.sh
+    ./install.sh 
 
 ## Usage:
 
@@ -39,9 +39,24 @@ this should be yaml-ified, prolly.
 ## Acknowledgements:
 Thanks to the author of the original "sonic compiler" paper, wherever you are. Also thanks to
 [formalplay](http://formalplay.com),
+[jacius](http://github.com/jacius),
 [fudgie](http://www.fudgie.org),
 [stamen](http://stamen.com/),
 [slowmotionlandscape](http://companypolicy.tv),
 the [monome kids](http://monome.org/),
 and [ambient devices](http://ambientdevices.myshopify.com/products/stock-orb)
 for inspiration. 
+
+## Notes on installation:
+Playing audio in Ruby is less trivial than I expected before I began
+this project. App-racket uses the following libraries, mainly because
+SDL, the cross-platform multimedia library, requires many obscure
+audio formats to run, e.g. stuff like Ogg Vorbis and "libmikmod".  
+
+SDL also requires the rsdl ruby wrapper, and we interface to SDL
+via rubygame, which itself requires things like the FFI gems.  
+
+But not to worry, tho: the app-racket install.sh installer script
+will handle all of those for you. for me, it takes abot 4m45s to
+download, compile, and install everything, which isn't bad.
+
