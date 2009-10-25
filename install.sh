@@ -40,7 +40,7 @@ cd -
 
 # support for MOD files (SDL mixer bombs unless this is installed)
 wget http://mikmod.raphnet.net/files/libmikmod-3.2.0-beta2.tar.gz
-tar zxpvf libmikmod-3.2.0-beta2.tar.gz
+tar zxpvf libmikmod-3.2.0-beta2.tar.gz && rm libmikmod-3.2.0-beta2.tar.gz
 cd libmikmod-3.2.0-beta2
 ./configure && make && sudo make install
 cd -
@@ -70,5 +70,11 @@ ruby configure.rb && make && sudo make install
 cd -
 
 popd
+
+echo "remove `du -sh deps | awk '{print $1}'` of dependency sources? (this will not break anything) [yn]"
+read remove_deps
+if [ "$remove_deps" = "y" -o "$remove_deps" = "Y" ] ; then
+  rm -rf deps
+fi
 
 # END
