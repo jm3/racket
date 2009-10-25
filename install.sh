@@ -7,8 +7,8 @@ mkdir deps
 cd deps
 
 # install the SDL multimedia libraries (required my SDL mixer)
-# (pre-release build for snow leopard)
-wget http://www.libsdl.org/tmp/SDL-1.2.14.tar.gz
+# (official, stable, Snow Leopard-safe build)
+wget http://www.libsdl.org/release/SDL-1.2.14.tar.gz
 tar zxpvf SDL-1.2.14.tar.gz && rm SDL-1.2.14.tar.gz
 cd SDL-1.2.14
 ./configure && make && sudo make install
@@ -38,8 +38,8 @@ chmod +rx install-sh
 sudo make install
 cd -
 
-# install the SDL audio mixer for up to 8-sound polyphony plus background music 
-# (pre-release build for snow leopard)
+# install SDL audio mixer for up to 8-sound polyphony plus background music 
+# (official, stable, Snow Leopard-safe build)
 wget http://www.libsdl.org/projects/SDL_mixer/release/SDL_mixer-1.2.9.tar.gz
 tar zxpvf SDL_mixer-1.2.9.tar.gz && rm SDL_mixer-1.2.9.tar.gz
 cd SDL_mixer-1.2.9
