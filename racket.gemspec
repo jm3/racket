@@ -1,5 +1,5 @@
 spec = Gem::Specification.new do |s|
-  s.version           = "0.0.2"
+  s.version           = "0.0.3"
   s.date              = %q{2009-11-20}
 
   s.name              = "racket"
@@ -24,19 +24,19 @@ spec = Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
  
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency('curb', [">= 0.5.1.0"])
-      s.add_runtime_dependency('moneta', [">= 0.6.0"])
-      s.add_runtime_dependency('progressbar', [">= 0.0.3"])
+    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new("1.2.0") then
+      s.add_runtime_dependency("curb", [">= 0.5.1.0"])
+      s.add_runtime_dependency("moneta", [">= 0.6.0"])
+      s.add_runtime_dependency("progressbar", [">= 0.0.3"])
     else
-      s.add_dependency('curb', [">= 0.5.1.0"])
-      s.add_dependency('moneta', [">= 0.6.0"])
-      s.add_dependency('progressbar', [">= 0.0.3"])
+      s.add_dependency("curb", [">= 0.5.1.0"])
+      s.add_dependency("moneta", [">= 0.6.0"])
+      s.add_dependency("progressbar", [">= 0.0.3"])
     end
   else
-    s.add_dependency('curb', [">= 0.5.1.0"])
-    s.add_dependency('moneta', [">= 0.6.0"])
-    s.add_dependency('progressbar', [">= 0.0.3"])
+    s.add_dependency("curb", [">= 0.5.1.0"])
+    s.add_dependency("moneta", [">= 0.6.0"])
+    s.add_dependency("progressbar", [">= 0.0.3"])
   end
 
 end
