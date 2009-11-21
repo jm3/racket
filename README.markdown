@@ -1,14 +1,13 @@
-## App-Racket
-### Listen to your app
+## Racket
+### Listen to your app.
 
-Warning: very untested and hacky, may cause blindness, etc, etc
+Warning: very untested and hacky, may cause blindness, etc, etc.
 
-Ever wanted a completely ambient view of your app's performance and
-progress? App-Racket lets you step back and experience your
-applications' events as pure light and sound. Potentially great for
-pattern discovery, team morale, and stoner parties. App-Racket uses
-a custom logfile format, but could be extended to read any line-based
-log file, ala gltail.
+Ever wanted a completely ambient view of your app's performance and progress?
+Racket lets you step back and experience your applications' events as pure light
+and sound. Potentially great for pattern discovery, team morale, and stoner parties.
+Racket uses a custom logfile format, but could be extended to read any line-based
+log file, a la gltail.
 
 Sounds live in the "sounds" directory; wav, mp3, aiff and even wacky formats like OggVorbis are supported.
 
@@ -22,14 +21,14 @@ this should be yaml-ified, prolly.
 ## Usage:
 
     # start your web-app, or simulate it:
-    ./event_log_simulator.rb > dummy.log &
+    ./bin/event_simulator > dummy.log &
 
     # run app-racket with rsdl wrapper:
-    rsdl app_racket.rb dummy.log
+    rsdl bin/racket dummy.log
 
     # bask in the insanity of your app's racket!
 
-# TODO:
+## TODO:
  * implement tailing over ssh, ala GlTail
  * yaml-ize sound reaction mapping
  * implement light control via [arduino](http://rad.rubyforge.org/)
@@ -50,7 +49,7 @@ for inspiration.
 ## Notes on installation:
 Playing audio in Ruby is much messier than I expected before starting
 this project, especially having seen things like Giles' archeopteryx.
-App-racket depends on several external libraries, primarily because
+Racket depends on several external libraries, primarily because
 SDL (the cross-platform multimedia library) itself depends on several
 obscure audio format decoders to even play simple files, e.g. Ogg
 Vorbis and MikMod.
@@ -59,6 +58,6 @@ On top of those, on OS X SDL also requires a ruby wrapper called
 rsdl, plus we interface to SDL from ruby via something called
 rubygame, which itself requires things like the FFI gems.
 
-But not to worry: app-racket' installer script handles all that
-for you. On my macbook pro the full shebang takes about 4m45s to
+But fear not: the racket installer script handles all that
+for you. On my MacBook Pro the full shebang takes about 4m45s to
 download, compile, and install everything, which isn't bad.
