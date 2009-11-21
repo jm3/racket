@@ -20,6 +20,8 @@ Gem::Specification.new do |s|
   s.files = [
     ".gitignore",
      "README.markdown",
+     "Rakefile",
+     "VERSION",
      "bin/event_simulator",
      "bin/racket",
      "doc/rubysdl.rb",
@@ -49,9 +51,15 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<rsdl>, [">= 0.1.2"])
+      s.add_runtime_dependency(%q<rubygame>, [">= 2.6.2"])
     else
+      s.add_dependency(%q<rsdl>, [">= 0.1.2"])
+      s.add_dependency(%q<rubygame>, [">= 2.6.2"])
     end
   else
+    s.add_dependency(%q<rsdl>, [">= 0.1.2"])
+    s.add_dependency(%q<rubygame>, [">= 2.6.2"])
   end
 end
 
