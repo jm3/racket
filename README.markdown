@@ -10,7 +10,7 @@ pattern discovery, team morale, and stoner parties. App-Racket uses
 a custom logfile format, but could be extended to read any line-based
 log file, ala gltail.
 
-Sounds are kept in the "sounds" directory; WAV and AIF both supported.
+Sounds live in the "sounds" directory; wav, mp3, aiff and even wacky formats like OggVorbis are supported.
 
 Events and corresponding reactions are defined in the events hash;
 this should be yaml-ified, prolly.
@@ -39,9 +39,26 @@ this should be yaml-ified, prolly.
 ## Acknowledgements:
 Thanks to the author of the original "sonic compiler" paper, wherever you are. Also thanks to
 [formalplay](http://formalplay.com),
+[jacius](http://github.com/jacius),
 [fudgie](http://www.fudgie.org),
 [stamen](http://stamen.com/),
 [slowmotionlandscape](http://companypolicy.tv),
 the [monome kids](http://monome.org/),
 and [ambient devices](http://ambientdevices.myshopify.com/products/stock-orb)
 for inspiration. 
+
+## Notes on installation:
+Playing audio in Ruby is much messier than I expected before starting
+this project, especially having seen things like Giles' archeopteryx.
+App-racket depends on several external libraries, primarily because
+SDL (the cross-platform multimedia library) itself depends on several
+obscure audio format decoders to even play simple files, e.g. Ogg
+Vorbis and MikMod.
+
+On top of those, on OS X SDL also requires a ruby wrapper called
+rsdl, plus we interface to SDL from ruby via something called
+rubygame, which itself requires things like the FFI gems.
+
+But not to worry: app-racket' installer script handles all that
+for you. On my macbook pro the full shebang takes about 4m45s to
+download, compile, and install everything, which isn't bad.
