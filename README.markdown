@@ -1,5 +1,5 @@
 ## App-Racket
-### Listen to the sounds of your web app
+### Listen to your app
 
 Warning: very untested and hacky, may cause blindness, etc, etc
 

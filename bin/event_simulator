@@ -8,7 +8,7 @@ events = [
   'tweet_invite'
 ]
 
-users = [ 'jm3', 'ryan', 'sferik', 'vanessa', 'jon', 'kevin' ]
+users = [ 'jm3', 'sferik', 'sferik', 'vanessa', 'jon', 'kevin' ]
 
 while true
   print "#{Time.now}, #{events[rand(events.size)]}, #{users[rand(users.size)]}\n"
