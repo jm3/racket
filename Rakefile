@@ -20,8 +20,9 @@ begin
     gemspec.bindir = "bin"
     gemspec.executables = ["racket"]
     gemspec.default_executable = "racket"
-    gemspec.add_dependency("rsdl", [">= 0.1.2"])
-    gemspec.add_dependency("rubygame", [">= 2.6.2"])
+    gemspec.add_dependency("rsdl", ">= 0.1.2")
+    gemspec.add_dependency("rubygame", ">= 2.6.2")
+    gemspec.add_dependency("file-tail", ">= 1.0.4")
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError

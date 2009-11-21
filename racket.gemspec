@@ -53,13 +53,16 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<rsdl>, [">= 0.1.2"])
       s.add_runtime_dependency(%q<rubygame>, [">= 2.6.2"])
+      s.add_runtime_dependency(%q<file-tail>, [">= 1.0.4"])
     else
       s.add_dependency(%q<rsdl>, [">= 0.1.2"])
       s.add_dependency(%q<rubygame>, [">= 2.6.2"])
+      s.add_dependency(%q<file-tail>, [">= 1.0.4"])
     end
   else
     s.add_dependency(%q<rsdl>, [">= 0.1.2"])
     s.add_dependency(%q<rubygame>, [">= 2.6.2"])
+    s.add_dependency(%q<file-tail>, [">= 1.0.4"])
   end
 end
 
