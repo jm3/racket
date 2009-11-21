@@ -1,5 +1,5 @@
 spec = Gem::Specification.new do |s|
-  s.version           = "0.0.1"
+  s.version           = "0.0.2"
   s.date              = %q{2009-11-20}
 
   s.name              = "racket"
@@ -8,13 +8,13 @@ spec = Gem::Specification.new do |s|
   s.description       = s.summary + "."
   s.email             = "jm3@jm3.net"
   s.homepage          = "http://jm3.net/"
-  s.files             = ["bin/app_racket.rb", "bin/event_simulator.rb"]
+  s.files             = ["bin/racket", "bin/event_simulator"]
   s.rubygems_version  = %q{1.3.5}
   s.rubyforge_project = "your-mom"
 
   s.bindir      = "bin"
-  s.executables = ["app_racket.rb"]
-  s.default_executable = "app_racket.rb"
+  s.executables = ["racket"]
+  s.default_executable = "racket"
 
   s.platform          = Gem::Platform::RUBY
   s.has_rdoc          = false

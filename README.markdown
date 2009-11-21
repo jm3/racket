@@ -17,7 +17,7 @@ this should be yaml-ified, prolly.
 
 ## Installing:
 
-    ./install.sh
+    ./install_dependencies.sh
 
 ## Usage:
 
