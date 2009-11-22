@@ -2,16 +2,15 @@
 # generate a fake stream of events for testing
 
 events = [
-  'tweet_share',
+  'tweet',
   'signup',
+  'invite',
   'login',
-  'tweet_invite'
+  'error',
 ]
 
-users = [ 'jm3', 'sferik', 'sferik', 'vanessa', 'jon', 'kevin' ]
-
 while true
-  print "#{Time.now}, #{events[rand(events.size)]}, #{users[rand(users.size)]}\n"
+  puts "#{Time.now}, #{events[rand(events.size)]}"
   $stdout.flush
-  sleep(rand(5))
+  sleep(rand(3))
 end

@@ -11,8 +11,7 @@ log file, a la gltail.
 
 Sounds live in the "sounds" directory; wav, mp3, aiff and even wacky formats like OggVorbis are supported.
 
-Events and corresponding reactions are defined in the events hash;
-this should be yaml-ified, prolly.
+Events and corresponding reactions are defined in `config/matcher.rb`
 
 ## Installing:
 
@@ -29,8 +28,7 @@ this should be yaml-ified, prolly.
     # bask in the insanity of your app's racket!
 
 ## TODO:
- * implement tailing over ssh, ala GlTail
- * yaml-ize sound reaction mapping
+ * implement tailing over ssh, a la GlTail
  * implement light control via [arduino](http://rad.rubyforge.org/)
  * figure out if syslog is what we want for aggregate logfiles from
    multiple apps/servers into a single stream
