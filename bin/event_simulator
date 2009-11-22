@@ -12,5 +12,5 @@ events = [
 while true
   puts "#{Time.now}, #{events[rand(events.size)]}"
   $stdout.flush
-  sleep(rand(3))
+  sleep(rand(3) + 1)
 end
