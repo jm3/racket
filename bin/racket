@@ -1,0 +1,82 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'rubygame'
+require 'file/tail'
+require 'singleton'
+include Rubygame
+
+class Racket
+  include Singleton
+  attr_accessor :events
+
+  def initialize
+    @events = []
+  end
+
+  # Push an event to the bottom of the stack.
+  def push(event)
+    @events.push(event)
+  end
+
+  # Removes the top-most event.
+  def pop
+    @events.pop
+  end
+end
+
+class Event
+  attr_accessor :regex, :description, :reaction
+
+  def initialize(regex, description)
+    @regex = regex
+    @description = description
+  end
+
+  def play(sound)
+    @reaction = Reaction.new(sound)
+  end
+
+  def to_s
+    "#{description}\n"
+  end
+end
+
+class Reaction
+  attr_accessor :sound
+
+  def initialize(sound)
+    @sound = "sounds/#{sound}"
+  end
+end
+
+Rubygame.init
+
+def match(regex, description)
+  @racket = Racket.instance
+  @event = Event.new(regex, description)
+  @racket.push(@event)
+  @event
+end
+
+def run
+  # puts "Using audio driver:" + Rubygame.audio_driver
+  Sound.autoload_dirs = ["sounds"]
+
+  require 'config/matcher'
+
+  @file = File.open(ARGV.first)
+  @file.extend(File::Tail)
+  @file.tail do |line|
+    @racket.events.each do |event|
+      if line.match(event.regex)
+        puts event
+        Sound.load(event.reaction.sound).play
+      end
+    end
+  end
+end
+
+event_thread = Thread.new{run}
+event_thread.join
+Rubygame.quit
