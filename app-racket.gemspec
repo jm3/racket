@@ -4,16 +4,16 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{racket}
+  s.name = %q{app-racket}
   s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["John Manoogian III", "Erik Michaels-Ober"]
   s.date = %q{2009-11-21}
-  s.default_executable = %q{racket}
+  s.default_executable = %q{app-racket}
   s.description = %q{Listen to your app.}
   s.email = %q{jm3@jm3.net}
-  s.executables = ["racket"]
+  s.executables = ["app-racket"]
   s.extra_rdoc_files = [
     "README.markdown"
   ]
@@ -23,10 +23,10 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "bin/event_simulator",
-     "bin/racket",
+     "bin/app-racket",
      "config/matcher.rb",
      "install_dependencies.sh",
-     "racket.gemspec",
+     "app-racket.gemspec",
      "sounds/bing-bong.wav",
      "sounds/notify_cardinal1.aiff",
      "sounds/notify_cardinal2.aiff",
