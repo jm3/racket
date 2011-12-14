@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'rake/rdoctask'
 
-GEM_NAME = "racket"
+GEM_NAME = "app-racket"
 AUTHORS = ["John Manoogian III", "Erik Michaels-Ober"]
 EMAIL = "jm3@jm3.net"
 HOMEPAGE = "http://github.com/jm3/racket"
@@ -18,8 +18,8 @@ begin
     gemspec.email = EMAIL
     gemspec.homepage = HOMEPAGE
     gemspec.bindir = "bin"
-    gemspec.executables = ["racket"]
-    gemspec.default_executable = "racket"
+    gemspec.executables = ["app-racket"]
+    gemspec.default_executable = "app-racket"
     gemspec.add_dependency("rsdl", ">= 0.1.2")
     gemspec.add_dependency("rubygame", ">= 2.6.2")
     gemspec.add_dependency("file-tail", ">= 1.0.4")
